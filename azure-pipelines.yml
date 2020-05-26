@@ -27,15 +27,15 @@ stages:
           $(tag)
 
 - stage: 'Deploy'
-displayName: 'Deploy the container'
-dependsOn: Build
-jobs:
-- job: 'Deploy'
-  displayName: 'Deploy job'
-  pool:
-    vmImage: 'ubuntu-16.04'
-  variables:
-  - group: Release
+  displayName: 'Deploy the container'
+  dependsOn: Build
+  jobs:
+  - job: 'Deploy'
+    displayName: 'Deploy job'
+    pool:
+      vmImage: 'ubuntu-16.04'
+    variables:
+    - group: Release
     steps:
     - task: AzureWebAppContainer@1
       inputs:
